@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DreamWeave Games - Game Development Company</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background: linear-gradient(180deg, #f6f9ff 0%, #ffffff 100%);
+            color: #2d3748;
+            line-height: 1.8;
+            -webkit-font-smoothing: antialiased;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 40px 24px 64px;
+        }
+
+        /* ===== Nav ===== */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 8px 0 32px;
+        }
+        .nav-logo {
+            font-size: 17px;
+            font-weight: 800;
+            letter-spacing: 0.5px;
+            color: #4f46e5;
+        }
+        .nav-links a {
+            color: #64748b;
+            text-decoration: none;
+            font-size: 14px;
+            font-weight: 500;
+            margin-left: 24px;
+            transition: color 0.2s;
+        }
+        .nav-links a:hover {
+            color: #4f46e5;
+        }
+
+        /* ===== Hero ===== */
+        .hero {
+            padding: 48px 0 40px;
+            border-bottom: 1px solid #eef2f7;
+            margin-bottom: 8px;
+        }
+        .hero-badge {
+            display: inline-block;
+            font-size: 12px;
+            font-weight: 700;
+            color: #4f46e5;
+            background: #eef2ff;
+            padding: 4px 14px;
+            border-radius: 20px;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
+        }
+        .hero-company {
+            font-size: 40px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            line-height: 1.2;
+            margin-bottom: 16px;
+            color: #1e293b;
+        }
+        .hero-company em {
+            font-style: normal;
+            color: #4f46e5;
+        }
+        .hero-sub {
+            font-size: 17px;
+            color: #64748b;
+            max-width: 560px;
+        }
+
+        /* ===== Section ===== */
+        section {
+            padding: 44px 0;
+            border-bottom: 1px solid #eef2f7;
+        }
+        .section-tag {
+            font-size: 12px;
+            font-weight: 700;
+            color: #4f46e5;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            margin-bottom: 12px;
+        }
+        h2 {
+            font-size: 26px;
+            font-weight: 700;
+            margin-bottom: 16px;
+            color: #1e293b;
+        }
+        p {
+            font-size: 15px;
+            color: #475569;
+            margin-bottom: 12px;
+        }
+        p:last-child {
+            margin-bottom: 0;
+        }
+
+        /* ===== About ===== */
+        .about-grid {
+            margin-top: 16px;
+        }
+        .about-row {
+            padding: 16px 0;
+            border-bottom: 1px solid #eef2f7;
+        }
+        .about-row:last-child {
+            border-bottom: none;
+        }
+        .about-row strong {
+            display: block;
+            font-size: 15px;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        .about-row span {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* ===== Games ===== */
+        .game-list {
+            margin-top: 8px;
+        }
+        .game {
+            padding: 20px 0;
+            border-bottom: 1px solid #eef2f7;
+        }
+        .game:last-child {
+            border-bottom: none;
+        }
+        .game-name {
+            font-size: 17px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        .game-name .status {
+            display: inline-block;
+            font-size: 11px;
+            font-weight: 600;
+            padding: 2px 10px;
+            border-radius: 10px;
+            vertical-align: middle;
+            margin-left: 8px;
+            letter-spacing: 0.5px;
+        }
+        .game-name .status.live {
+            color: #059669;
+            background: #ecfdf5;
+        }
+        .game-name .status.soon {
+            color: #d97706;
+            background: #fffbeb;
+        }
+        .game-desc {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* ===== Values ===== */
+        .values {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 16px;
+            margin-top: 8px;
+        }
+        @media (max-width: 520px) {
+            .values {
+                grid-template-columns: 1fr;
+            }
+        }
+        .value {
+            padding: 20px;
+            background: #ffffff;
+            border: 1px solid #eef2f7;
+            border-radius: 12px;
+            transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+        }
+        .value:hover {
+            border-color: #c7d2fe;
+            transform: translateY(-2px);
+            box-shadow: 0 8px 24px rgba(79, 70, 229, 0.08);
+        }
+        .value-title {
+            font-size: 15px;
+            font-weight: 700;
+            color: #1e293b;
+            margin-bottom: 6px;
+        }
+        .value-desc {
+            font-size: 14px;
+            color: #64748b;
+            margin-bottom: 0;
+        }
+
+        /* ===== Updates ===== */
+        .update-list {
+            margin-top: 8px;
+        }
+        .update {
+            padding: 14px 0;
+            border-bottom: 1px solid #eef2f7;
+        }
+        .update:last-child {
+            border-bottom: none;
+        }
+        .update-date {
+            font-size: 12px;
+            color: #4f46e5;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+        .update-text {
+            font-size: 15px;
+            color: #334155;
+        }
+
+        /* ===== FAQ ===== */
+        .faq-list {
+            margin-top: 8px;
+        }
+        .faq {
+            padding: 14px 0;
+            border-bottom: 1px solid #eef2f7;
+        }
+        .faq:last-child {
+            border-bottom: none;
+        }
+        .faq-q {
+            font-size: 15px;
+            font-weight: 600;
+            color: #1e293b;
+            margin-bottom: 4px;
+        }
+        .faq-a {
+            font-size: 14px;
+            color: #64748b;
+        }
+
+        /* ===== Contact ===== */
+        .contact-block {
+            margin-top: 16px;
+            padding: 24px;
+            background: #ffffff;
+            border: 1px solid #eef2f7;
+            border-radius: 12px;
+        }
+        .contact-line {
+            font-size: 15px;
+            color: #334155;
+            margin-bottom: 8px;
+        }
+        .contact-line a {
+            color: #4f46e5;
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .contact-line a:hover {
+            text-decoration: underline;
+        }
+
+        /* ===== Footer ===== */
+        footer {
+            padding-top: 32px;
+            font-size: 13px;
+            color: #94a3b8;
+        }
+        .footer-links {
+            margin-bottom: 8px;
+        }
+        .footer-links a {
+            color: #64748b;
+            text-decoration: none;
+            margin-right: 20px;
+        }
+        .footer-links a:hover {
+            color: #4f46e5;
+        }
+
+        @media (max-width: 600px) {
+            .hero-company { font-size: 32px; }
+            .nav-links a { margin-left: 14px; font-size: 13px; }
+            section { padding: 32px 0; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Nav -->
+        <nav>
+            <div class="nav-logo">DREAMWEAVE GAMES</div>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#games">Games</a>
+                <a href="#values">Values</a>
+                <a href="#updates">Updates</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Hero -->
+        <div class="hero">
+            <div class="hero-badge">✨ INDEPENDENT GAME STUDIO</div>
+            <div class="hero-company">Games built to be<br><em>played.</em></div>
+            <div class="hero-sub">DreamWeave Games is an independent game company creating engaging, accessible games for players around the world.</div>
+        </div>
+
+        <!-- About -->
+        <section id="about">
+            <div class="section-tag">About Us</div>
+            <h2>Who we are</h2>
+            <p>DreamWeave Games was founded on a simple idea: games should be fun, fair, and made for everyone. We design and develop games that are easy to pick up, rewarding to master, and crafted with care.</p>
+            <p>Our team brings together designers, engineers, and artists who love games as much as the people who play them. We focus on clean mechanics, thoughtful design, and experiences that fit naturally into everyday life.</p>
+
+            <div class="about-grid">
+                <div class="about-row">
+                    <strong>Our Mission</strong>
+                    <span>To create entertaining, high-quality games that players genuinely enjoy and return to.</span>
+                </div>
+                <div class="about-row">
+                    <strong>Our Approach</strong>
+                    <span>Small focused teams, careful polish, and games built around the player experience.</span>
+                </div>
+                <div class="about-row">
+                    <strong>Our Audience</strong>
+                    <span>Casual players of all ages looking for fun, accessible entertainment.</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Games -->
+        <section id="games">
+            <div class="section-tag">Our Games</div>
+            <h2>What we've made</h2>
+
+            <div class="game-list">
+                <div class="game">
+                    <div class="game-name">Game Pulses <span class="status live">Live</span></div>
+                    <div class="game-desc">Our flagship title — a fast, satisfying arcade experience built for quick sessions.</div>
+                </div>
+                <div class="game">
+                    <div class="game-name">More titles <span class="status soon">In Development</span></div>
+                    <div class="game-desc">New casual games are on the way. Stay tuned for what we build next.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Values -->
+        <section id="values">
+            <div class="section-tag">What We Believe</div>
+            <h2>Our values</h2>
+
+            <div class="values">
+                <div class="value">
+                    <div class="value-title">Simple by Design</div>
+                    <div class="value-desc">Easy to learn, fun to master. No complicated rules, just good gameplay.</div>
+                </div>
+                <div class="value">
+                    <div class="value-title">Quality First</div>
+                    <div class="value-desc">We polish every detail, because small touches make games great.</div>
+                </div>
+                <div class="value">
+                    <div class="value-title">Player at Heart</div>
+                    <div class="value-desc">We make games we'd love to play ourselves, and players always come first.</div>
+                </div>
+                <div class="value">
+                    <div class="value-title">Respect Your Time</div>
+                    <div class="value-desc">Quick sessions, instant fun. Our games fit into any break in your day.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Updates -->
+        <section id="updates">
+            <div class="section-tag">News &amp; Updates</div>
+            <h2>What's new</h2>
+
+            <div class="update-list">
+                <div class="update">
+                    <div class="update-date">2026 · September</div>
+                    <div class="update-text">Game Pulses is live and available to play now.</div>
+                </div>
+                <div class="update">
+                    <div class="update-date">2026 · August</div>
+                    <div class="update-text">Our studio keeps building — new titles are in active development.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section id="faq">
+            <div class="section-tag">FAQ</div>
+            <h2>Common questions</h2>
+
+            <div class="faq-list">
+                <div class="faq">
+                    <div class="faq-q">Are your games free to play?</div>
+                    <div class="faq-a">Yes. Our games are free to download and play, supported by optional ads and in-game purchases.</div>
+                </div>
+                <div class="faq">
+                    <div class="faq-q">Do you collect my personal data?</div>
+                    <div class="faq-a">We collect only the minimum data needed to run and improve our games. See our Privacy Policy for details.</div>
+                </div>
+                <div class="faq">
+                    <div class="faq-q">Can I collaborate or partner with you?</div>
+                    <div class="faq-a">We're always happy to hear from players and partners. Reach out using the contact details below.</div>
+                </div>
+                <div class="faq">
+                    <div class="faq-q">How do I report a problem?</div>
+                    <div class="faq-a">Email us and we'll take a look as soon as we can. Your feedback makes our games better.</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="section-tag">Contact</div>
+            <h2>Get in touch</h2>
+            <p>Questions, feedback, or business inquiries — we'd love to hear from you.</p>
+            <div class="contact-block">
+                <div class="contact-line">DreamWeave (Shanghai) Games Co., Ltd.</div>
+                <div class="contact-line">Email: <a href="mailto:carmelapalmer192@gmail.com">carmelapalmer192@gmail.com</a></div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer>
+            <div class="footer-links">
+                <a href="/privacy">Privacy Policy</a>
+                <a href="/terms">Terms of Service</a>
+            </div>
+            <div>&copy; 2026 DreamWeave Games. All rights reserved.</div>
+        </footer>
+    </div>
+</body>
+</html>
